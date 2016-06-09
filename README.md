@@ -1,1 +1,1 @@
-# Mangaking.esy.es
+[MangaKing.esy.es](http://www.mangaking.esy.es)
