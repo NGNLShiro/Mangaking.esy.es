@@ -1,13 +1,24 @@
 <?php
-	for($b = 6; $b < 11; $b++){
+
+	$i = 0;
+	$j = 1;
+	$ID = array();
+	$sql = "SELECT * FROM `$dbname`.`manga-name` WHERE `genre` like '%$a%'";
+	$result = $connection -> query("$sql");
+	if($result -> num_rows > 0){
+		for($i = 0; $i < 10; $i++){
+			$row = $result -> fetch_assoc();
+			$ID[$i] = $row['ID'];
+		}
+	}
+	
+	for($b = 5; $b < 10; $b++){
 		$i = 0;
 		$j = 1;
-		$sql = "SELECT * FROM `$dbname`.`$tbname1` WHERE `ID` = '$b'";
+		$sql = "SELECT * FROM `$dbname`.`manga-name` WHERE `ID` = '$ID[$b]'";
 		$result = $connection -> query("$sql");
-		if($result -> num_rows > 0)
-        {
-			while ($row = $result -> fetch_assoc())
-			{
+		if($result -> num_rows > 0){
+			while($row = $result -> fetch_assoc()){
 				?>
 						<div class="column1-title-content">
                             <div class="column1-title-content-img">
@@ -67,7 +78,7 @@
 										}
 									}
 								?>
-								</p>
+                            </p>
                                 <p class="manga-chapter"><b>Chap mới nhất : </b><?php echo $row['latest-chap']; ?></p>
                             </div>
                         </div>

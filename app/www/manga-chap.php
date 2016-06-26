@@ -1,7 +1,8 @@
-<?php include "../../app/admin/connection.php"; ?>
+<?php include "../app/admin/connection.php"; ?>
 <?php
-	$a = 6;
-	$b = 25;
+	$b = $_POST['b'];
+	$a = $_POST['a'];
+	
 	$tbname = "manga-name-a";
 	$tbnamechapter = "manga-name-a-chapter";
 	$tbnamechaptercontent = "manga-name-a-chapter-content";
@@ -10,9 +11,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php include "../../app/admin/Manga_Name_Title.php"; ?> - Chap <?php include "../../app/admin/chapter-display-present.php"; ?></title>
+<title><?php include "../app/admin/Manga_Name_Title.php"; ?> - Chap <?php include "../app/admin/chapter-display-present.php"; ?></title>
 
-	<link rel="stylesheet" type="text/css" href="../../contents/css/Manga Club Reading.css" />
+	<link rel="stylesheet" type="text/css" href="../contents/css/Manga Club Reading.css" />
 
 
 
@@ -35,10 +36,10 @@
 	<div id="header">
 		<div class="clearfix1">
             <div id="logo">
-            	<a href="http://mangaking.esy.es"><img src="../../contents/img/Logo.png" /></a>
+            	<a href="http://mangaking.esy.es"><img src="../contents/img/Logo.png" /></a>
             </div>
         	<div id="banner">
-            	<img src="../../contents/img/Banner.png" />
+            	<img src="../contents/img/Banner.png" />
             </div>
             <div id="log-in">
             	<p onClick="activelogin()">Đăng nhập <span>và</span> Đăng ký</p>
@@ -48,9 +49,9 @@
                     <ul>
                         <li>Tắt đèn</li>
                         <li><a href="http://mangaking.esy.es">Trang chủ</a></li>
-                        <?php include"../../app/admin/chap_pre.php"; ?>
-                        <li id="chap-number">Chap <?php include"../../app/admin/chapter-display-present.php"; ?>/<?php include"../../app/admin/chapter-display-all.php"; ?></li>
-                        <?php include"../../app/admin/chap_next.php"; ?>
+                        <?php include"../app/admin/chap_pre.php"; ?>
+                        <li id="chap-number">Chap <?php include"../app/admin/chapter-display-present.php"; ?>/<?php include"../app/admin/chapter-display-all.php"; ?></li>
+                        <?php include"../app/admin/chap_next.php"; ?>
                         <li><a href="#">Theo dõi truyện</a></li>
                     </ul>
                 </div>
@@ -81,7 +82,7 @@
             </div>
             <div id="content-manga-img">
                 	<?php
-						include "../../app/admin/chapter_content.php";
+						include "../app/admin/chapter_content.php";
                     ?>
             </div>
         </div>
@@ -134,58 +135,7 @@
 </html>
 
 
-
-<script type="text/javascript">
-		function closeit(){
-			document.getElementById("click").checked = false;
-			document.getElementById("chatbox-click").checked = false;
-		}
-		
-		window.onscroll = function (){
-			if(window.scrollY >= 104)
-			{
-				var nav = document.getElementById("navigation");
-				nav.classList.add("active");
-			}
-			else
-			{
-				var nav = document.getElementById("navigation");
-            	nav.classList.remove("active");
-			}
-		}
-		
-		
-		function first_chap(){
-			window.alert("Đây là chap đầu tiên của truyện !!!");
-		}
-		function waiting_new_chapter(){
-			window.alert("Đây là chap mới nhất của truyện. Chúng tôi sẽ thông báo đến bạn ngay khi có chap mới !!!");
-		}
-
-
-</script>
-
-
-
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script type = "text/javascript">
-        function getStates(value){
-            $.post("../../../getState.php",{partialState:value},function(data){
-                $("#results").html(data);
-            });
-        }
-    
-    </script>
-	<script type="text/javascript">
-		function activelogin(){
-			var x = document.getElementById("login-result");
-			x.classList.remove("active-login");
-		}
-		function closeloingresult(){
-			var y = document.getElementById("login-result");
-			y.classList.add("active-login");
-		}
-	</script>
+	<script type="text/javascript" src = "contents/js/login.js"></script>
     
     
     

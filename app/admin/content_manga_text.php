@@ -1,5 +1,8 @@
 <?php
-        $sql = "SELECT * FROM `$dbname`.`$tbname` WHERE ID = '$a'";
+	
+		$i = 0;
+		$j = 1;
+        $sql = "SELECT * FROM `mangaking`.`manga-name` WHERE ID = '$a'";
         $result = $connection -> query($sql);
         if($result -> num_rows > 0)
         {
@@ -12,27 +15,55 @@
 							<p><b>Trạng Thái : </b><?php if($row['ongoing'] == 1){echo "On Going";} else{echo "Done";} ?></p>
 							<p><b>Thể Loại : </b>
                             	<?php
-										$limit = strlen($row['genre']);
-										for($beginnum = 0; $beginnum <= $limit + 1;){
-											$genrecode = substr($row['genre'],$beginnum,2);//Cắt chuỗi từ vị trí $i với n ký tự
-											$sql1 = "SELECT * FROM `$dbname`.`genre` WHERE `code` = '$genrecode'";
+									while($j <= str_word_count($row['genre'])){
+										if($j == 1){
+											$genre = substr($row['genre'],$i,strpos($row['genre'],","));
+											$i = strpos($row['genre'],",");
+											$string = substr($row['genre'],$i + 1);
+											$j = $j + 1;
+											$sql1 = "SELECT * FROM `$dbname`.`genre` WHERE `name` LIKE '$genre'";
 											$result1 = $connection -> query($sql1);
-											if($result1 -> num_rows > 0){
+											if($result -> num_rows > 0){
 												while($row1 = $result1 -> fetch_assoc()){
-													if($beginnum == ($limit - 2)){
-														?>
-														<a href = "<?php echo $row1['link']; ?>"><?php echo $row1['name']; ?></a>.
-														<?php
-													}
-													else{
-														?>
+													?>
 														<a href = "<?php echo $row1['link']; ?>"><?php echo $row1['name']; ?></a>,
+													<?php
+												}
+											}
+										}
+										else{
+											if($j == str_word_count($row['genre'])){
+												$genre = substr($string,0,strpos($string,","));
+												$i = strpos($string,",");
+												$string = substr($string,$i + 1);
+												$j = $j + 1;
+												$sql1 = "SELECT * FROM `$dbname`.`genre` WHERE `name` LIKE '$genre'";
+												$result1 = $connection -> query($sql1);
+												if($result1 -> num_rows > 0){
+													while($row1 = $result1 -> fetch_assoc()){
+														?>
+															<a href = "<?php echo $row1['link']; ?>"><?php echo $row1['name']; ?></a>
 														<?php
 													}
 												}
 											}
-											$beginnum = $beginnum + 4;
+											else{
+												$genre = substr($string,0,strpos($string,","));
+												$i = strpos($string,",");
+												$string = substr($string,$i + 1);
+												$j = $j + 1;
+												$sql1 = "SELECT * FROM `$dbname`.`genre` WHERE `name` LIKE '$genre'";
+												$result1 = $connection -> query($sql1);
+												if($result1 -> num_rows > 0){
+													while($row1 = $result1 -> fetch_assoc()){
+														?>
+															<a href = "<?php echo $row1['link']; ?>"><?php echo $row1['name']; ?></a>,
+														<?php
+													}
+												}
+											}
 										}
+									}
 								?>
                             </p>
 							<p><b>Bookmarks : </b><?php echo $row['ID']; ?></p>
@@ -41,3 +72,30 @@
 			}
         }
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			

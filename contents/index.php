@@ -1,27 +1,30 @@
 ﻿<?php
 
 	$url = __DIR__;
-	echo $url."<br/>";
-	echo substr($url,0,-8)."<br/>";
+	//domain
+	substr($url,0,-8)."<br/>";
 	$documentroot = $_SERVER["CONTEXT_DOCUMENT_ROOT"];
-	echo $documentroot."<br/>";
+	//root
 	$request = $_SERVER["REDIRECT_URL"];
-	echo $request."<br/>";
+	//url + uri
 	$docandreq = $documentroot.=substr($request,1);
-	echo $docandreq."<br/>";
+	//domain + url + uri (link)
 	$cuturi = substr($docandreq,(strlen($url)+1));
-	echo $cuturi."<br/>";
-	
-	$homepage = substr($url,0,-8).'app/www/home-page.php';
+	//Cut uri (customer request)
+/*
+	$file = substr($url,0,-8).'app/www/'.$cuturi;
+	$fileuri = "../app/www/".$cuturi;
 	if($cuturi == NULL){
-		include"E:/wamp/www/Manga Club Project/Mangaking.esy.es/app/www/home-page.php";
+		include"../app/www/home-page.php";
 	}
 	else{
-		if(file_exists($cuturi)){
-			echo "URI Exists";
+		if(file_exists($file)){
+			include $fileuri;
 		}
 		else{
-			echo "URI Not Exists";
+			include"../app/errors/404.html";
 		}
 	}
+*/
+	include"../core/route.php";
 ?>

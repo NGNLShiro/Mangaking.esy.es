@@ -1,43 +1,36 @@
 <?php include"../app/admin/connection.php"; ?>
 <?php
+	$a = 1;
+	$tbname = "manga-name-a";
+	$tbnamechapter = $tbname."-chapter";
+	$tbnamechaptercontent = $tbname."-chapter-content";
 	$bxh = "bxh";
-	$tbname1 = "hotmanga";
-	$tbname2 = "latest-update-manga";
-	$tbname3 = "new-manga";
 ?>
-
-
-
-<!DOCTYPE HTML>
-<!-- Website template by freewebsitetemplates.com -->
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="UTF-8">
-	<title>Manga King</title>
-	<link rel="stylesheet" href="contents/css/mangaclub.css" type="text/css">
-    <style type="text/css">
-	body{
-		background-image:url(contents/img/tumblr_static_bkhdovnxlqo8g40wkcowk4ks8.jpg)
-	}
-	
-	</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?php include"../app/admin/Manga_Name_Title.php"; ?></title>
 		
-		
-	
-	
-	
-    
-    
+        
+        
+		<link rel="stylesheet" type="text/css" href="../contents/css/Manga Chapter.css" />
+
+
+
+
+
 </head>
+
 <body>
 	<hr />
 	<div id="header">
 		<div class="clearfix1">
         	<div id="logo">
-            	<a href="mangaking.esy.es"><img src="contents/img/Logo.png" /></a>
+            	<a href="http://mangaking.esy.es"><img src="../contents/img/Logo.png" /></a>
             </div>
         	<div id="banner">
-            	<img src="contents/img/Banner.png" />
+            	<img src="../contents/img/Banner.png" />
             </div>
             <div id="log-in">
             	<p onClick="activelogin()">Đăng nhập <span>và</span> Đăng ký</p>
@@ -88,8 +81,8 @@
           	</div>
 		</div>
 	</div>
-	<div id="contents">
-		<div id="slider">
+    <div id="contents">
+       	<div class="clearfix">
         	<div id = "login-result" class="active-login">
                 <div id="fb-root"></div>
                     <script>
@@ -110,54 +103,54 @@
                 </div>
                 <p id = "close-login-result" onClick="closeloingresult()">X</p>
             </div>
-        	<div id="slider-img1">
-                <a href="#"><img id="slider-img1-img" onMouseOver="bigImg1()" onMouseOut="normalImg()" src="contents/img/slider1.png" /></a>
-            </div>
-            <div id="slider-img2">
-                <a href="#"><img id="slider-img2-img" onMouseOver="bigImg2()" onMouseOut="normalImg()" src="contents/img/slider2.png" /></a>
-            </div>
-            <div id="slider-img3">
-                <a href="#"><img id="slider-img3-img" src="contents/img/slider3.png" /></a>
-            </div>
-            <div id="slider-img4">
-                <a href="#"><img id="slider-img4-img" onMouseOver="bigImg4()" onMouseOut="normalImg()" src="contents/img/slider4.png" /></a>
-            </div>
-            <div id="slider-img5">
-                <a href="#"><img id="slider-img5-img" onMouseOver="bigImg5()" onMouseOut="normalImg()" src="contents/img/slider5.png" /></a>
-            </div>
-        </div>
-        <div class="clearfix">
         	<div id="column1">
-            	<div id="column1-title">
-                	<ul>
-                    	<li id="change1" class="always-active" onClick="change1()">Truyện Hot</li>
-                        <li id="change2" onClick="change2()">Truyện Mới Cập Nhật</li>
-                        <li id="change3" onClick="change3()">Truyện Mới Đăng</li>
-                    </ul>
+                <div id="content-manga-img">
+                    <?php include"../app/admin/content_manga_img.php"; ?>
                 </div>
-                <div id="column1-hot-manga">
-                	<div class="column1-content-part1">
-                    	<?php include"../app/admin/hot-manga-home-page1.php"; ?>
-                    </div>
-                    <div class="column1-content-part2">
-                    	<?php include"../app/admin/hot-manga-home-page2.php"; ?>
-                    </div>
+                <div id="content-manga-text">
+                    <?php include"../app/admin/content_manga_text.php"; ?>
                 </div>
-                <div id="column1-latest-update-manga">
-                	<div class="column1-content-part1">
-                    	<?php include"../app/admin/latest-update-manga-home-page1.php"; ?>
+                <div id="content-manga-summary">
+                    <div id="content-manga-summary-title">
+                    	<p style="text-transform:uppercase;">NỘI DUNG TRUYỆN <span style="color:red;"><?php include"../app/admin/Manga_Name_Title.php"; ?></span> : </p>
                     </div>
-                    <div class="column1-content-part2">
-                    	<?php include"../app/admin/latest-update-manga-home-page2.php"; ?>
+                    <div id="content-manga-summary-text">
+                    	<?php include"../app/admin/content_manga_summary.php"; ?>
                     </div>
                 </div>
-                <div id="column1-new-manga">
-                	<div class="column1-content-part1">
-                    	<?php include"../app/admin/new-manga-home-page1.php"; ?>
+                <div id="manga-chapter-list">
+                	<div id="manga-chapter-list-title">
+                    	<p>DANH SÁCH CHAP</p>
                     </div>
-                    <div class="column1-content-part2">
-                    	<?php include"../app/admin/new-manga-home-page2.php"; ?>
+                    <div id="manga-chapter-list-content-title">
+                    	<div class="manga-chapter-list-content-title">
+                            <p>Chapter</p>
+                        </div>
+                        <div class="manga-chapter-list-content-title">
+                            <p>Ngày ra</p>
+                        </div>
+                        <div class="manga-chapter-list-content-title">
+                          	<p>Lượt xem</p>
+                        </div>
                     </div>
+                    <div id="manga-chapter-list-content">
+                    	<div id="manga-chapter-list-content-number">
+                            <div class="manga-chapter-list-content-choice">
+                            	<?php include"../app/admin/manga_chapter_list_content_number.php"; ?>
+                            </div>
+                        </div>
+                        <div id="manga-chapter-list-content-date">
+                            <div class="manga-chapter-list-content-choice">
+                            	<?php include"../app/admin/manga_chapter_list_content_date.php"; ?>
+                            </div>
+                        </div>
+                        <div id="manga-chapter-list-content-views">
+                            <div class="manga-chapter-list-content-choice">
+                            	<?php include"../app/admin/manga_chapter_list_content_views.php"; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
                 </div>
             </div>
             <div id="column2">
@@ -166,13 +159,22 @@
                     	<p>-Bảng Xếp Hạng-</p>
                     </div>
                     <ul>
-                        <?php include"../app/admin/Top-home-page.php"; ?>
+                        <?php include"../app/admin/Top1.php"; ?>
+                    </ul>
+                    <hr />
+                </div>
+                <div id="column2-part2">
+                	<div id="column2-part2-title">
+                    	<p>-Truyện Tương Tự-</p>
+                    </div>
+                    <ul>
+                    	<?php include"../app/admin/manga_same_content.php"; ?>
                     </ul>
                     <hr />
                 </div>
             </div>
         </div>
-	</div>
+    </div>
     <div id="footer">
        	<div id="footer-content1">
             <div id="introduction">
@@ -212,23 +214,23 @@
             </div>
         </div>
   	</div>
+
 </body>
 </html>
 
-	<script type="text/javascript" src = "contents/js/close-it.js"></script>
+
+
+	<script type="text/javascript" src = "../contents/js/close-it.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type = "text/javascript">
         function getStates(value){
-            $.post("getState.php",{partialState:value},function(data){
+            $.post("../app/admin/getState.php",{partialState:value},function(data){
                 $("#results").html(data);
             });
         }
     
     </script>
-    <script type="text/javascript" src = "contents/js/slider.js"></script>
-	<script type="text/javascript" src = "contents/js/content-home-page.js"></script>
-	<script type="text/javascript" src = "contents/js/login.js"></script>
-
+	<script type="text/javascript" src = "../contents/js/login.js"></script>
 
 
 

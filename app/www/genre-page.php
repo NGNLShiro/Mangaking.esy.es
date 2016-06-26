@@ -1,9 +1,8 @@
 <?php include"../app/admin/connection.php"; ?>
 <?php
+	$a = $_POST['a'];
 	$bxh = "bxh";
-	$tbname1 = "hotmanga";
-	$tbname2 = "latest-update-manga";
-	$tbname3 = "new-manga";
+	$tbname = "genre";
 ?>
 
 
@@ -14,10 +13,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Manga King</title>
-	<link rel="stylesheet" href="contents/css/mangaclub.css" type="text/css">
+	<link rel="stylesheet" href="../contents/css/mangaclub.css" type="text/css">
     <style type="text/css">
 	body{
-		background-image:url(contents/img/tumblr_static_bkhdovnxlqo8g40wkcowk4ks8.jpg)
+		background-image:url(../contents/img/tumblr_static_bkhdovnxlqo8g40wkcowk4ks8.jpg)
 	}
 	
 	</style>
@@ -34,10 +33,10 @@
 	<div id="header">
 		<div class="clearfix1">
         	<div id="logo">
-            	<a href="mangaking.esy.es"><img src="contents/img/Logo.png" /></a>
+            	<a href="mangaking.esy.es"><img src="../contents/img/Logo.png" /></a>
             </div>
         	<div id="banner">
-            	<img src="contents/img/Banner.png" />
+            	<img src="../contents/img/Banner.png" />
             </div>
             <div id="log-in">
             	<p onClick="activelogin()">Đăng nhập <span>và</span> Đăng ký</p>
@@ -111,52 +110,34 @@
                 <p id = "close-login-result" onClick="closeloingresult()">X</p>
             </div>
         	<div id="slider-img1">
-                <a href="#"><img id="slider-img1-img" onMouseOver="bigImg1()" onMouseOut="normalImg()" src="contents/img/slider1.png" /></a>
+                <a href="#"><img id="slider-img1-img" onMouseOver="bigImg1()" onMouseOut="normalImg()" src="../contents/img/slider1.png" /></a>
             </div>
             <div id="slider-img2">
-                <a href="#"><img id="slider-img2-img" onMouseOver="bigImg2()" onMouseOut="normalImg()" src="contents/img/slider2.png" /></a>
+                <a href="#"><img id="slider-img2-img" onMouseOver="bigImg2()" onMouseOut="normalImg()" src="../contents/img/slider2.png" /></a>
             </div>
             <div id="slider-img3">
-                <a href="#"><img id="slider-img3-img" src="contents/img/slider3.png" /></a>
+                <a href="#"><img id="slider-img3-img" src="../contents/img/slider3.png" /></a>
             </div>
             <div id="slider-img4">
-                <a href="#"><img id="slider-img4-img" onMouseOver="bigImg4()" onMouseOut="normalImg()" src="contents/img/slider4.png" /></a>
+                <a href="#"><img id="slider-img4-img" onMouseOver="bigImg4()" onMouseOut="normalImg()" src="../contents/img/slider4.png" /></a>
             </div>
             <div id="slider-img5">
-                <a href="#"><img id="slider-img5-img" onMouseOver="bigImg5()" onMouseOut="normalImg()" src="contents/img/slider5.png" /></a>
+                <a href="#"><img id="slider-img5-img" onMouseOver="bigImg5()" onMouseOut="normalImg()" src="../contents/img/slider5.png" /></a>
             </div>
         </div>
         <div class="clearfix">
         	<div id="column1">
             	<div id="column1-title">
                 	<ul>
-                    	<li id="change1" class="always-active" onClick="change1()">Truyện Hot</li>
-                        <li id="change2" onClick="change2()">Truyện Mới Cập Nhật</li>
-                        <li id="change3" onClick="change3()">Truyện Mới Đăng</li>
+                    	<li id="change1" class="always-active" onClick="change1()">Thể loại <?php echo $a; ?></li>
                     </ul>
                 </div>
                 <div id="column1-hot-manga">
                 	<div class="column1-content-part1">
-                    	<?php include"../app/admin/hot-manga-home-page1.php"; ?>
+                    	<?php include"../app/admin/genre-part1.php"; ?>
                     </div>
                     <div class="column1-content-part2">
-                    	<?php include"../app/admin/hot-manga-home-page2.php"; ?>
-                    </div>
-                </div>
-                <div id="column1-latest-update-manga">
-                	<div class="column1-content-part1">
-                    	<?php include"../app/admin/latest-update-manga-home-page1.php"; ?>
-                    </div>
-                    <div class="column1-content-part2">
-                    	<?php include"../app/admin/latest-update-manga-home-page2.php"; ?>
-                    </div>
-                </div>
-                <div id="column1-new-manga">
-                	<div class="column1-content-part1">
-                    	<?php include"../app/admin/new-manga-home-page1.php"; ?>
-                    </div>
-                    <div class="column1-content-part2">
-                    	<?php include"../app/admin/new-manga-home-page2.php"; ?>
+                    	<?php include"../app/admin/genre-part2.php"; ?>
                     </div>
                 </div>
             </div>
@@ -166,7 +147,7 @@
                     	<p>-Bảng Xếp Hạng-</p>
                     </div>
                     <ul>
-                        <?php include"../app/admin/Top-home-page.php"; ?>
+                        <?php include"../app/admin/Top1.php"; ?>
                     </ul>
                     <hr />
                 </div>
@@ -215,7 +196,7 @@
 </body>
 </html>
 
-	<script type="text/javascript" src = "contents/js/close-it.js"></script>
+	<script type="text/javascript" src = "../contents/js/close-it.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type = "text/javascript">
         function getStates(value){
@@ -225,9 +206,9 @@
         }
     
     </script>
-    <script type="text/javascript" src = "contents/js/slider.js"></script>
-	<script type="text/javascript" src = "contents/js/content-home-page.js"></script>
-	<script type="text/javascript" src = "contents/js/login.js"></script>
+    <script type="text/javascript" src = "../contents/js/slider.js"></script>
+	<script type="text/javascript" src = "../contents/js/content-home-page.js"></script>
+	<script type="text/javascript" src = "../contents/js/login.js"></script>
 
 
 

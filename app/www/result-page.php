@@ -1,9 +1,7 @@
 <?php include"../app/admin/connection.php"; ?>
 <?php
 	$bxh = "bxh";
-	$tbname1 = "hotmanga";
-	$tbname2 = "latest-update-manga";
-	$tbname3 = "new-manga";
+	$tbname = "manga-name";
 ?>
 
 
@@ -129,34 +127,14 @@
         <div class="clearfix">
         	<div id="column1">
             	<div id="column1-title">
-                	<ul>
-                    	<li id="change1" class="always-active" onClick="change1()">Truyện Hot</li>
-                        <li id="change2" onClick="change2()">Truyện Mới Cập Nhật</li>
-                        <li id="change3" onClick="change3()">Truyện Mới Đăng</li>
-                    </ul>
+                	<p>Kết quả tìm kiếm cho : </p>
                 </div>
-                <div id="column1-hot-manga">
+                <div id="column1-result">
                 	<div class="column1-content-part1">
-                    	<?php include"../app/admin/hot-manga-home-page1.php"; ?>
+                    	<?php include"../app/admin/result-search-part1.php"; ?>
                     </div>
                     <div class="column1-content-part2">
-                    	<?php include"../app/admin/hot-manga-home-page2.php"; ?>
-                    </div>
-                </div>
-                <div id="column1-latest-update-manga">
-                	<div class="column1-content-part1">
-                    	<?php include"../app/admin/latest-update-manga-home-page1.php"; ?>
-                    </div>
-                    <div class="column1-content-part2">
-                    	<?php include"../app/admin/latest-update-manga-home-page2.php"; ?>
-                    </div>
-                </div>
-                <div id="column1-new-manga">
-                	<div class="column1-content-part1">
-                    	<?php include"../app/admin/new-manga-home-page1.php"; ?>
-                    </div>
-                    <div class="column1-content-part2">
-                    	<?php include"../app/admin/new-manga-home-page2.php"; ?>
+                    	<?php include"../app/admin/result-search-part2.php"; ?>
                     </div>
                 </div>
             </div>
@@ -219,14 +197,12 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type = "text/javascript">
         function getStates(value){
-            $.post("getState.php",{partialState:value},function(data){
+            $.post("../app/admin/getState.php",{partialState:value},function(data){
                 $("#results").html(data);
             });
         }
-    
     </script>
     <script type="text/javascript" src = "contents/js/slider.js"></script>
-	<script type="text/javascript" src = "contents/js/content-home-page.js"></script>
 	<script type="text/javascript" src = "contents/js/login.js"></script>
 
 

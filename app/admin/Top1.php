@@ -13,9 +13,9 @@
 							<li>
 								<div class="rank">
 									<div class="rank-img">
-										<img src="contents/img/number<?php echo $i; ?>.png" style = "height: 63px; position: absolute; margin-top: -30px; margin-left: -23px;" />
+										<img src="../contents/img/number<?php echo $i; ?>.png" style = "height: 63px; position: absolute; margin-top: -30px; margin-left: -23px;" />
 									</div>
-									<div class="rank-text" style = "margin-left: 55px; margin-top: -10px; margin-bottom: 10px;">
+									<div class="rank-text" style = "margin-left: 55px;">
 										<a href="<?php echo $row['link']; ?>"><?php echo $row['name']; ?></a>
 									</div>
 								</div>
@@ -27,7 +27,7 @@
 							<li>
 								<div class="rank">
 									<div class="rank-img">
-										<img src="contents/img/number<?php echo $i; ?>.png" />
+										<img src="../contents/img/number<?php echo $i; ?>.png" />
 									</div>
 									<div class="rank-text">
 										<a href="<?php echo $row['link']; ?>"><?php echo $row['name']; ?></a>

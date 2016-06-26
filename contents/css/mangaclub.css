@@ -1,7 +1,7 @@
 /* Website template by freewebsitetemplates.com */
 		body {
 			font-family: "Segoe UI",Arial,sans-serif;
-			background-image:url(../Pictures/tumblr_static_bkhdovnxlqo8g40wkcowk4ks8.jpg);
+			background-image:url(../../img/tumblr_static_bkhdovnxlqo8g40wkcowk4ks8.jpg);
 			min-width: 960px;
 			margin: 0;
 		}
@@ -357,6 +357,14 @@
 		p.genre {
 			font-family: cursive;
   			color: rgb(255, 155, 0);
+		}
+		.genre a{
+			font-family: cursive;
+  			color: rgb(255, 155, 0);
+			text-decoration: none;
+		}
+		.genre a:hover{
+			color: black;
 		}
 		p.manga-chapter {
 			font-size: 15px;
