@@ -2,7 +2,7 @@
 	
 		$i = 0;
 		$j = 1;
-        $sql = "SELECT * FROM `mangaking`.`manga-name` WHERE ID = '$a'";
+        $sql = "SELECT * FROM `DB_NAME`.`manga-name` WHERE ID = '$a'";
         $result = $connection -> query($sql);
         if($result -> num_rows > 0)
         {

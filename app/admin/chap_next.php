@@ -1,6 +1,6 @@
 <?php
 		$c = $b + 1;
-		$sql = "SELECT * FROM `$dbname`.`$tbnamechapter` WHERE `ID` = '$c'";
+		$sql = "SELECT * FROM `DB_NAME`.`$tbnamechapter` WHERE `ID` = '$c'";
 		$result = $connection -> query ($sql);
 		if($result -> num_rows > 0)
 		{

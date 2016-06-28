@@ -1,7 +1,7 @@
 <?php
 	
 	for ($i = 33; $i <= 42; $i++){
-		$sql = "SELECT * FROM `$dbname`.`genre` WHERE `ID` = '$i'";
+		$sql = "SELECT * FROM `DB_NAME`.`genre` WHERE `ID` = '$i'";
 		$result = $connection -> query ($sql);
 		if($result -> num_rows > 0)
         {

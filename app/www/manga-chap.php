@@ -1,3 +1,4 @@
+<?php include"../config/webconfig.php"; ?>
 <?php include "../app/admin/connection.php"; ?>
 <?php
 	$b = $_POST['b'];

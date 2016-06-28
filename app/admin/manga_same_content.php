@@ -5,7 +5,7 @@
 	for ($i = 1; $i < 6 ; $i++ ){
 		$rand = rand($m,$n);
 		if($rand != $a){
-			$sql = "SELECT * FROM `$dbname`.`$tbname` WHERE ID = '$rand'";
+			$sql = "SELECT * FROM `DB_NAME`.`$tbname` WHERE ID = '$rand'";
 			$result = $connection -> query($sql);
 			if($result -> num_rows > 0)
 			{

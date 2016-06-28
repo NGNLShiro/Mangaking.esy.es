@@ -2,7 +2,7 @@
 	
 	for($i=1; $i<1000; $i++)
     {
-        $sql = "SELECT * FROM `$dbname`.`$tbnamechapter` WHERE ID = '$i'";
+        $sql = "SELECT * FROM `DB_NAME`.`$tbnamechapter` WHERE ID = '$i'";
         $result = $connection -> query($sql);
         if($result -> num_rows > 0)
         {

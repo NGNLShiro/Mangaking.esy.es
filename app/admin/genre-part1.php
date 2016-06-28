@@ -3,7 +3,7 @@
 	$i = 0;
 	$j = 1;
 	$ID = array();
-	$sql = "SELECT * FROM `$dbname`.`manga-name` WHERE `genre` like '%$a%'";
+	$sql = "SELECT * FROM `DB_NAME`.`manga-name` WHERE `genre` like '%$a%'";
 	$result = $connection -> query("$sql");
 	if($result -> num_rows > 0){
 		for($i = 0; $i < 10; $i++){

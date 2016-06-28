@@ -1,7 +1,7 @@
 <?php
 	
 
-        $sql = "SELECT * FROM `$dbname`.`$tbnamechaptercontent` WHERE ID_manga_name_chapter = '$b'";
+        $sql = "SELECT * FROM `DB_NAME`.`$tbnamechaptercontent` WHERE `ID_manga_name_chapter` = '$b'";
         $result = $connection -> query($sql);
         if($result -> num_rows > 0)
         {

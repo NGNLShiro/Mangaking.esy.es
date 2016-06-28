@@ -83,13 +83,14 @@
 			$getdata = 1;
 		}
 		
+		include"../config/webconfig.php";
 		include"../app/admin/connection.php";// connect to database
 		
 		/* ------- Show Data to Requestion -------- */
 		
 		// if user just request "[manga-name]"
 		if($getdata == 1){
-			$sql = "SELECT * FROM `$dbname`.`manga-name` WHERE `name` LIKE '$manganame'";
+			$sql = "SELECT * FROM `DB_NAME`.`manga-name` WHERE `name` LIKE '$manganame'";
 			$result = $connection -> query ($sql);
 			if($result -> num_rows > 0){
 				while ($row = $result -> fetch_assoc()){
@@ -119,7 +120,7 @@
 		}
 		// if user request "[manga-name]" and "[chapter-number]"
 		else if($getdata == 2){
-			$sql = "SELECT * FROM `$dbname`.`manga-name-a-chapter` WHERE `chapter-name` LIKE '$chapter' AND `manga-name` = '$manganame'";
+			$sql = "SELECT * FROM `DB_NAME`.`manga-name-a-chapter` WHERE `chapter-name` LIKE '$chapter' AND `manga-name` = '$manganame'";
 			$result = $connection -> query ($sql);
 			if($result -> num_rows > 0){
 				while ($row = $result -> fetch_assoc()){
@@ -150,7 +151,7 @@
 		}
 		// if user requests genre
 		else{
-			$sql = "SELECT * FROM `$dbname`.`genre` WHERE `name` LIKE '$genre'";
+			$sql = "SELECT * FROM `DB_NAME`.`genre` WHERE `name` LIKE '$genre'";
 			$result = $connection -> query ($sql);
 			if($result -> num_rows > 0){
 				while ($row = $result -> fetch_assoc()){

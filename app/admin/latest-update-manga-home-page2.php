@@ -2,7 +2,7 @@
 	for($b = 6; $b < 11; $b++){
 		$i = 0;
 		$j = 1;
-		$sql = "SELECT * FROM `$dbname`.`$tbname2` WHERE `ID` = '$b'";
+		$sql = "SELECT * FROM `DB_NAME`.`$tbname2` WHERE `ID` = '$b'";
 		$result = $connection -> query("$sql");
 		if($result -> num_rows > 0)
         {
@@ -23,7 +23,7 @@
 											$i = strpos($row['genre'],",");
 											$string = substr($row['genre'],$i + 1);
 											$j = $j + 1;
-											$sql1 = "SELECT * FROM `$dbname`.`genre` WHERE `name` LIKE '$genre'";
+											$sql1 = "SELECT * FROM `DB_NAME`.`genre` WHERE `name` LIKE '$genre'";
 											$result1 = $connection -> query($sql1);
 											if($result -> num_rows > 0){
 												while($row1 = $result1 -> fetch_assoc()){
@@ -39,7 +39,7 @@
 												$i = strpos($string,",");
 												$string = substr($string,$i + 1);
 												$j = $j + 1;
-												$sql1 = "SELECT * FROM `$dbname`.`genre` WHERE `name` LIKE '$genre'";
+												$sql1 = "SELECT * FROM `DB_NAME`.`genre` WHERE `name` LIKE '$genre'";
 												$result1 = $connection -> query($sql1);
 												if($result1 -> num_rows > 0){
 													while($row1 = $result1 -> fetch_assoc()){
@@ -54,7 +54,7 @@
 												$i = strpos($string,",");
 												$string = substr($string,$i + 1);
 												$j = $j + 1;
-												$sql1 = "SELECT * FROM `$dbname`.`genre` WHERE `name` LIKE '$genre'";
+												$sql1 = "SELECT * FROM `DB_NAME`.`genre` WHERE `name` LIKE '$genre'";
 												$result1 = $connection -> query($sql1);
 												if($result1 -> num_rows > 0){
 													while($row1 = $result1 -> fetch_assoc()){

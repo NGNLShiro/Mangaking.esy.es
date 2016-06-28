@@ -1,7 +1,7 @@
 <?php
 	$a = $_POST['search-box'];
 	$ID = array();
-	$sql = "SELECT * FROM `$dbname`.`manga-name-a` WHERE `name` like '%ac%'";
+	$sql = "SELECT * FROM `DB_NAME`.`manga-name-a` WHERE `name` like '%ac%'";
 	$result = $connection -> query("$sql");
 	if($result -> num_rows > 0){
 		for($i = 0; $i < 10; $i++){
@@ -11,7 +11,7 @@
 	}
 	
 	for($i = 5; $i < 10; $i++){
-		$sql = "SELECT * FROM `$dbname`.`manga-name-a` WHERE `ID` = '$ID[$i]'";
+		$sql = "SELECT * FROM `DB_NAME`.`manga-name-a` WHERE `ID` = '$ID[$i]'";
 		$result = $connection -> query("$sql");
 		if($result -> num_rows > 0){
 			while($row = $result -> fetch_assoc()){

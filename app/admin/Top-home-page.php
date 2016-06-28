@@ -2,7 +2,7 @@
 	
     for($i=1; $i<11; $i++)
     {
-        $sql = "SELECT * FROM `$dbname`.`$bxh` WHERE ID = '$i'";
+        $sql = "SELECT * FROM `DB_NAME`.`$bxh` WHERE ID = '$i'";
         $result = $connection -> query($sql);
         if($result -> num_rows > 0)
         {

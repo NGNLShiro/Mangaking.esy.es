@@ -2,7 +2,7 @@
 	$servername = "localhost" ;
 	$username = "root" ;
 	$password = "" ;
-	$dbname = "skymanga" ;
+	$dbname = "mangaking" ;
 	
 	$connection = mysqli_connect ($servername, $username, $password, $dbname );
 	if($connection -> connect_error) {
@@ -26,7 +26,7 @@
 				x.style.display = "block";
 			</script>
 		<?php
-		$sql = "SELECT * FROM `$dbname`.`all-manga` WHERE `name` LIKE '%$a%'";
+		$sql = "SELECT * FROM `$dbname`.`manga-name` WHERE `name` LIKE '%$a%'";
 		$result = $connection -> query ($sql);
 		if($result -> num_rows > 0)
 		{
