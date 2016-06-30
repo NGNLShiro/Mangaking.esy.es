@@ -2,7 +2,7 @@
 	
     for($i=1; $i<25; $i++)
     {
-        $sql = "SELECT * FROM `DB_NAME`.`$tbname` WHERE ID = '$i'";
+        $sql = "SELECT * FROM `$dbname`.`$tbname` WHERE ID = '$i'";
         $result = $connection -> query($sql);
         if($result -> num_rows > 0)
         {

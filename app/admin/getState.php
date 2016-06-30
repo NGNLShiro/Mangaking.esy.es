@@ -33,7 +33,7 @@
 			while ($row = $result -> fetch_assoc ())
 			{
 				?>
-					<li><a href="<?php echo $row['link']; ?>"><?php echo $row['name']; ?></a></li>
+					<li><a href="<?php echo DOMAIN.$row['link']; ?>"><?php echo $row['name']; ?></a></li>
 				<?php
 			}
 		}

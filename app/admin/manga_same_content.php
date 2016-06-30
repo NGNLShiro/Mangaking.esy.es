@@ -5,7 +5,7 @@
 	for ($i = 1; $i < 6 ; $i++ ){
 		$rand = rand($m,$n);
 		if($rand != $a){
-			$sql = "SELECT * FROM `DB_NAME`.`$tbname` WHERE ID = '$rand'";
+			$sql = "SELECT * FROM `$dbname`.`$tbname` WHERE ID = '$rand'";
 			$result = $connection -> query($sql);
 			if($result -> num_rows > 0)
 			{
@@ -15,10 +15,10 @@
 						<li>
                         	<div class="same-manga">
                             	<div class="same-manga-img">
-                                	<a href="<?php echo $row['link']; ?>"><img src = "<?php echo $row['avatar-img']; ?>" /></a>
+                                	<a href="<?php echo DOMAIN.$row['link']; ?>"><img src = "<?php echo $row['avatar-img']; ?>" /></a>
                                 </div>
                                 <div class="same-manga-text">
-                                	<a href="<?php echo $row['link']; ?>"><?php echo $row['name']; ?></a>
+                                	<a href="<?php echo DOMAIN.$row['link']; ?>"><?php echo $row['name']; ?></a>
                                 </div>
                             </div>
                         </li>

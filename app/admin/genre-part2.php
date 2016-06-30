@@ -3,7 +3,7 @@
 	$i = 0;
 	$j = 1;
 	$ID = array();
-	$sql = "SELECT * FROM `DB_NAME`.`manga-name` WHERE `genre` like '%$a%'";
+	$sql = "SELECT * FROM `$dbname`.`manga-name` WHERE `genre` like '%$a%'";
 	$result = $connection -> query("$sql");
 	if($result -> num_rows > 0){
 		for($i = 0; $i < 10; $i++){
@@ -22,10 +22,10 @@
 				?>
 						<div class="column1-title-content">
                             <div class="column1-title-content-img">
-                                <a href="<?php echo $row['link']; ?>"><img src="<?php echo $row['avatar-img']; ?>"></a>
+                                <a href="<?php echo DOMAIN.$row['link']; ?>"><img src="<?php echo $row['avatar-img']; ?>"></a>
                             </div>
                             <div class="column1-title-content-text">
-                                <a class="manga-name" href="<?php echo $row['link']; ?>"><?php echo $row['name']; ?></a>
+                                <a class="manga-name" href="<?php echo DOMAIN.$row['link']; ?>"><?php echo $row['name']; ?></a>
                                 <p class = "genre"><b>Thể Loại : </b>
                             	<?php
 									while($j <= str_word_count($row['genre'])){
@@ -39,7 +39,7 @@
 											if($result -> num_rows > 0){
 												while($row1 = $result1 -> fetch_assoc()){
 													?>
-														<a href = "<?php echo $row1['link']; ?>"><?php echo $row1['name']; ?></a>,
+														<a href = "<?php echo DOMAIN.$row1['link']; ?>"><?php echo $row1['name']; ?></a>,
 													<?php
 												}
 											}
@@ -55,7 +55,7 @@
 												if($result1 -> num_rows > 0){
 													while($row1 = $result1 -> fetch_assoc()){
 														?>
-															<a href = "<?php echo $row1['link']; ?>"><?php echo $row1['name']; ?></a>
+															<a href = "<?php echo DOMAIN.$row1['link']; ?>"><?php echo $row1['name']; ?></a>
 														<?php
 													}
 												}
@@ -70,7 +70,7 @@
 												if($result1 -> num_rows > 0){
 													while($row1 = $result1 -> fetch_assoc()){
 														?>
-															<a href = "<?php echo $row1['link']; ?>"><?php echo $row1['name']; ?></a>,
+															<a href = "<?php echo DOMAIN.$row1['link']; ?>"><?php echo $row1['name']; ?></a>,
 														<?php
 													}
 												}

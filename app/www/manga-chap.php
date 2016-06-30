@@ -1,12 +1,12 @@
-<?php include"../config/webconfig.php"; ?>
+
 <?php include "../app/admin/connection.php"; ?>
 <?php
 	$b = $_POST['b'];
 	$a = $_POST['a'];
 	
-	$tbname = "manga-name-a";
-	$tbnamechapter = "manga-name-a-chapter";
-	$tbnamechaptercontent = "manga-name-a-chapter-content";
+	$tbname = "manga-name";
+	$tbnamechapter = "manga-name-chapter";
+	$tbnamechaptercontent = "manga-name-chapter-content";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

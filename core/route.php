@@ -3,19 +3,19 @@
 /* ------------------------ Route -------------------------- */
 		/* --------------- Rewrite --------------- */
 		//Get user link (Rewrote)
-		$userlink = $_SERVER['HTTP_HOST']."/Mangaking.esy.es/".$cuturi;
+		$userlink = $_SERVER['HTTP_HOST']."/".$cuturi;
 		//Countable vatiation
 		$count = 0;
 		//Count "/" in user link and response for the request
 		for($i = 1; $i <= strlen($userlink); $i++){
 			if(substr($userlink,$i,1) == "/"){
 				$count = $count + 1;
-				if($count == 2){
+				if($count == 1){
 					$position = $i;
 					$comstr = substr($userlink,$position+1); // Cut link in position which has "/" in the first time
 					// if link doesn't have any request show = 1 (show home page)
 					if(strlen($comstr) == 0){
-						$show = 1;
+						$show = 2;
 					}
 					// if link requests just manga or manga and chapter
 					else{
@@ -23,7 +23,7 @@
 							// Cut link in position which has "/" in the second time
 							if(substr($comstr,$j,1) == "/"){ 
 								$count = $count + 1;
-								if($count == 3){
+								if($count == 2){
 									$position = $j;
 								}
 							}
@@ -52,6 +52,7 @@
 			}
 		}
 		
+		
 		/* -------- Get Data from URI -------- */
 		
 		// if uri is like "[manga-name]/[chap-][number]" or "[manga-name]/"
@@ -59,7 +60,7 @@
 			$comstr = substr($cuturi,strpos($cuturi,"/") + 1);
 			//if uri is like "[manga-name]/"
 			if(strlen($comstr) == 0){
-				$manganame = substr(str_replace("-"," ",$cuturi),0,strpos($cuturi,"/"));// get requestion about "[manga-name]"
+				echo $manganame = substr(str_replace("-"," ",$cuturi),0,strpos($cuturi,"/"));// get requestion about "[manga-name]"
 				$getdata = 1;
 			}
 			//if uri is like "[manga-name]/[chap-][number]"
@@ -82,7 +83,8 @@
 			$manganame = str_replace("-"," ",$cuturi);// get requestion about "[manga-name]"
 			$getdata = 1;
 		}
-		
+		echo $show."<br/>";
+		echo $getdata;
 		include"../config/webconfig.php";
 		include"../app/admin/connection.php";// connect to database
 		
@@ -90,7 +92,7 @@
 		
 		// if user just request "[manga-name]"
 		if($getdata == 1){
-			$sql = "SELECT * FROM `DB_NAME`.`manga-name` WHERE `name` LIKE '$manganame'";
+			$sql = "SELECT * FROM `$dbname`.`manga-name` WHERE `name` LIKE '$manganame'";
 			$result = $connection -> query ($sql);
 			if($result -> num_rows > 0){
 				while ($row = $result -> fetch_assoc()){
@@ -120,7 +122,7 @@
 		}
 		// if user request "[manga-name]" and "[chapter-number]"
 		else if($getdata == 2){
-			$sql = "SELECT * FROM `DB_NAME`.`manga-name-a-chapter` WHERE `chapter-name` LIKE '$chapter' AND `manga-name` = '$manganame'";
+			$sql = "SELECT * FROM `$dbname`.`manga-name-chapter` WHERE `chapter-name` LIKE '$chapter' AND `manga-name` = '$manganame'";
 			$result = $connection -> query ($sql);
 			if($result -> num_rows > 0){
 				while ($row = $result -> fetch_assoc()){
@@ -151,7 +153,7 @@
 		}
 		// if user requests genre
 		else{
-			$sql = "SELECT * FROM `DB_NAME`.`genre` WHERE `name` LIKE '$genre'";
+			$sql = "SELECT * FROM `$dbname`.`genre` WHERE `name` LIKE '$genre'";
 			$result = $connection -> query ($sql);
 			if($result -> num_rows > 0){
 				while ($row = $result -> fetch_assoc()){

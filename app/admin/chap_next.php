@@ -1,6 +1,6 @@
 <?php
 		$c = $b + 1;
-		$sql = "SELECT * FROM `DB_NAME`.`$tbnamechapter` WHERE `ID` = '$c'";
+		$sql = "SELECT * FROM `$dbname`.`$tbnamechapter` WHERE `ID` = '$c'";
 		$result = $connection -> query ($sql);
 		if($result -> num_rows > 0)
 		{
@@ -8,7 +8,7 @@
 			{
 				if($row['ID_manga_name'] == $a){
 					?>
-					<li><a href="<?php echo $row["link"]; ?>">Chap Trước</a></li>
+					<li><a href="<?php echo DOMAIN.$row["link"]; ?>">Chap Trước</a></li>
 					<?php
 				}
 			}

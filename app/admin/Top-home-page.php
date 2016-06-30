@@ -2,7 +2,7 @@
 	
     for($i=1; $i<11; $i++)
     {
-        $sql = "SELECT * FROM `DB_NAME`.`$bxh` WHERE ID = '$i'";
+        $sql = "SELECT * FROM `$dbname`.`$bxh` WHERE ID = '$i'";
         $result = $connection -> query($sql);
         if($result -> num_rows > 0)
         {
@@ -16,7 +16,7 @@
 										<img src="contents/img/number<?php echo $i; ?>.png" style = "height: 63px; position: absolute; margin-top: -30px; margin-left: -23px;" />
 									</div>
 									<div class="rank-text" style = "margin-left: 55px; margin-top: -10px; margin-bottom: 10px;">
-										<a href="<?php echo $row['link']; ?>"><?php echo $row['name']; ?></a>
+										<a href="<?php echo DOMAIN.$row['link']; ?>"><?php echo $row['name']; ?></a>
 									</div>
 								</div>
 							</li>
@@ -30,7 +30,7 @@
 										<img src="contents/img/number<?php echo $i; ?>.png" />
 									</div>
 									<div class="rank-text">
-										<a href="<?php echo $row['link']; ?>"><?php echo $row['name']; ?></a>
+										<a href="<?php echo DOMAIN.$row['link']; ?>"><?php echo $row['name']; ?></a>
 									</div>
 								</div>
 							</li>
