@@ -3,52 +3,22 @@
 /* ------------------------ Route -------------------------- */
 		/* --------------- Rewrite --------------- */
 		//Get user link (Rewrote)
-		$userlink = $_SERVER['HTTP_HOST']."/".$cuturi;
+		if($cuturi == ""){
+			echo $userlink = $_SERVER['HTTP_HOST'];
+			$show = 1;
+		}
+		else{
+			echo $userlink = $_SERVER['HTTP_HOST']."/".$cuturi;
+		}
 		//Countable vatiation
 		$count = 0;
 		//Count "/" in user link and response for the request
-		for($i = 1; $i <= strlen($userlink); $i++){
-			if(substr($userlink,$i,1) == "/"){
-				$count = $count + 1;
-				if($count == 1){
-					$position = $i;
-					$comstr = substr($userlink,$position+1); // Cut link in position which has "/" in the first time
-					// if link doesn't have any request show = 1 (show home page)
-					if(strlen($comstr) == 0){
-						$show = 2;
-					}
-					// if link requests just manga or manga and chapter
-					else{
-						for($j = 1; $j <= strlen($comstr); $j++){
-							// Cut link in position which has "/" in the second time
-							if(substr($comstr,$j,1) == "/"){ 
-								$count = $count + 1;
-								if($count == 2){
-									$position = $j;
-								}
-							}
-							// link just requests manga which like form "www.mangaking.esy.es/[manga-name]"
-							else{
-								$show = 2;
-							}
-						}
-						$comstr = substr($comstr,$position);
-						// Link requests manga and chapter
-						if(strlen($comstr) > 1){
-							// if link isn't like form "www.mangaking.esy.es/[manga-name]/[chap-][number]" they can't connect
-							if(substr($comstr,1,5) == "chap-"){
-								$show = 3;
-							}
-							else{
-								$show = 5;
-							}
-						}
-						// Link is like "www.mangaking.esy.es/[manga-name]/"
-						if(strlen($comstr) == 1){
-							$show = 4;
-						}
-					}
-				}
+		if(strpos($userlink,"/") != ""){
+			if(strpos($cuturi,"/") == ""){
+				$show = 2;
+			}
+			else{
+				$show = 3;
 			}
 		}
 		
@@ -83,6 +53,7 @@
 			$manganame = str_replace("-"," ",$cuturi);// get requestion about "[manga-name]"
 			$getdata = 1;
 		}
+		
 		echo $show."<br/>";
 		echo $getdata;
 		include"../config/webconfig.php";
